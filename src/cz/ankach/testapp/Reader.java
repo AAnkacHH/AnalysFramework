@@ -5,6 +5,7 @@ import cz.ankach.application.entity.SolutionArgument;
 import cz.ankach.application.reader.InputReader;
 
 import java.util.List;
+import java.util.Map;
 
 public class Reader extends InputReader {
     public Reader(String inputFilename, String solutionFileName) {
@@ -17,7 +18,7 @@ public class Reader extends InputReader {
     }
 
     @Override
-    public List<SolutionArgument> readSolution() {
+    public Map<Integer, SolutionArgument> readSolution() {
         return null;
     }
 }

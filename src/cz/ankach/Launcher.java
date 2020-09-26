@@ -11,7 +11,7 @@ import cz.ankach.reflector.Reflector;
 
 import java.util.Map;
 
-public class Main {
+public class Launcher {
 
     public static void main(String[] args) {
         CLIArgumentHandler argumentHandler = new CLIArgumentHandler();
