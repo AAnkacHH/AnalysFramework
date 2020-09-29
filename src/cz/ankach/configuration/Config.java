@@ -1,6 +1,8 @@
 package cz.ankach.configuration;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -12,19 +14,24 @@ public class Config {
     public static final String PROPERTY_HANDLER = "Handler";
     public static final String PROPERTY_READER = "Reader";
     public static final String PROPERTY_TESTER = "Tester";
-    public static final String PROPERTY_TESTER_STATE = "Tester_state";
+    public static final String PROPERTY_TESTER_STATE = "Tester_enable";
     public static final String PROPERTY_VIEW = "View";
-    public static final String PROPERTY_VIEW_STATE = "View_state";
     public static final String PROPERTY_THREADS = "Threads";
     public static final String PROPERTY_TIMES = "Times";
 
     private final Map<String, String> conf;
+    private final List<String> views;
 
     public Config() {
         this.conf = new HashMap<>();
+        this.views = new ArrayList<>();
     }
 
     public void addProperty(String key, String value) {
+        if (key.compareTo(Config.PROPERTY_VIEW) == 0){
+            views.add(value);
+            return;
+        }
         conf.put(key, value);
     }
 
@@ -48,7 +55,7 @@ public class Config {
         return getProperty(PROPERTY_TESTER);
     }
 
-    public String getViewClassName() {
-        return getProperty(PROPERTY_VIEW);
+    public List<String> getViewClassNames() {
+        return views;
     }
 }

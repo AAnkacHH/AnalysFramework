@@ -5,6 +5,9 @@ import cz.ankach.application.entity.OutputArgument;
 
 import java.util.List;
 
+/**
+ * This interface represent custom algorithm which will be called for solving a problem.
+ * */
 public interface Handler {
-    public List<OutputArgument> handle(InputArgument input);
+    OutputArgument handle(InputArgument input);
 }

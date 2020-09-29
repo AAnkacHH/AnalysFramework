@@ -14,7 +14,6 @@ public class ConfigReader {
             Config.PROPERTY_TESTER,
             Config.PROPERTY_TESTER_STATE,
             Config.PROPERTY_VIEW,
-            Config.PROPERTY_VIEW_STATE,
             Config.PROPERTY_THREADS,
             Config.PROPERTY_TIMES
     };
