@@ -4,9 +4,8 @@ import cz.ankach.application.Application;
 import cz.ankach.application.Handler;
 import cz.ankach.application.entity.SolutionArgument;
 import cz.ankach.application.reader.InputReader;
+import cz.ankach.application.tester.Tester;
 import cz.ankach.application.view.CustomView;
-import cz.ankach.testapp.Handle;
-import cz.ankach.testapp.Tester;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
@@ -53,11 +52,16 @@ public class Reflector {
         return null;
     }
 
-    public Handle createHandler(String className) {
+    /**
+     * Method creates Handler class.
+     * @param className - class name as a string.
+     * @return Handler
+     * */
+    public Handler createHandler(String className) {
         try {
             Class<?> clazz = Class.forName(className);
             Constructor<?> constructor = clazz.getConstructor();
-            return (Handle) constructor.newInstance();
+            return (Handler) constructor.newInstance();
         } catch (ClassNotFoundException | NoSuchMethodException | IllegalAccessException | InstantiationException | InvocationTargetException e) {
             e.printStackTrace();
         }
@@ -65,6 +69,11 @@ public class Reflector {
         return null;
     }
 
+    /**
+     * Method creates CustomView class.
+     * @param className - class name as a string.
+     * @return CustomView
+     * */
     public CustomView createView(String className) {
         try {
             Class<?> clazz = Class.forName(className);

@@ -15,6 +15,10 @@ public class Launcher {
         CLIArgumentHandler argumentHandler = new CLIArgumentHandler();
         Map<String, String> arguments = argumentHandler.handleArguments(args);
         Config config = loadConfig(arguments);
+        if (config == null) {
+            System.out.println("Invalid config file.");
+            return;
+        }
         Reflector reflector = new Reflector();
         AnalyzerFactory factory = new AnalyzerFactory(reflector);
 

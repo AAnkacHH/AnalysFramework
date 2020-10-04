@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * This class is responsible for building application object using information from config.
+ * This class is responsible for building analyzer object using information from config.
  * */
 public class AnalyzerFactory {
 

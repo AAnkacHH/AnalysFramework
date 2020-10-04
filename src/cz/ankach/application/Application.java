@@ -2,7 +2,6 @@ package cz.ankach.application;
 
 import cz.ankach.application.entity.InputArgument;
 import cz.ankach.application.entity.OutputArgument;
-import cz.ankach.application.tester.Tester;
 
 import java.util.List;
 
@@ -11,13 +10,19 @@ import java.util.List;
  *  */
 public abstract class Application {
 
-    protected Tester tester;
     protected Handler handler;
 
-    public Application(Handler handler, Tester tester) {
-        this.tester = tester;
+    public Application(Handler handler) {
         this.handler = handler;
     }
+
+    /**
+     *  This method allows the program to copy current app object.
+     *  It is important for multiple threads running.
+     *
+     *  @return Application
+     *  */
+    public abstract Application copy();
 
     /**
      * Method runs your algorithm. Application will be counting running time for this method.

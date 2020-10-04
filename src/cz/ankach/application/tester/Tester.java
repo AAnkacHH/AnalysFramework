@@ -27,8 +27,8 @@ public abstract class Tester {
             InputArgument input = arg.getReferenceInput();
             SolutionArgument solution = solutions.get(input.getId());
 
-            if (solution == null || !test(arg, solution)) {
-                errors.add("Incorrect solution for input: " + input.getId());
+            if (!test(arg, solution)) {
+                errors.add("Incorrect solution for input ''': " + input.getId());
             }
         }
         return errors;

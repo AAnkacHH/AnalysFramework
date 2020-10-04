@@ -18,6 +18,7 @@ public class Config {
     public static final String PROPERTY_VIEW = "View";
     public static final String PROPERTY_THREADS = "Threads";
     public static final String PROPERTY_TIMES = "Times";
+    public static final String PROPERTY_SCALE = "Scale";
 
     private final Map<String, String> conf;
     private final List<String> views;
@@ -57,5 +58,9 @@ public class Config {
 
     public List<String> getViewClassNames() {
         return views;
+    }
+
+    public boolean hasAllRequiredProperties() {
+        return conf.size() == 8;
     }
 }

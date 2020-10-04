@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class ConfigReader {
     private final String filename;
 
-    private final String [] properties = {
+    private final String [] allowedProperties = {
             Config.PROPERTY_APP,
             Config.PROPERTY_HANDLER,
             Config.PROPERTY_READER,
@@ -15,7 +15,8 @@ public class ConfigReader {
             Config.PROPERTY_TESTER_STATE,
             Config.PROPERTY_VIEW,
             Config.PROPERTY_THREADS,
-            Config.PROPERTY_TIMES
+            Config.PROPERTY_TIMES,
+            Config.PROPERTY_SCALE
     };
 
     public ConfigReader(String filename) {
@@ -35,6 +36,9 @@ public class ConfigReader {
             while (scanner.hasNextLine()) {
                 String property = scanner.nextLine();
                 addProperty(property, config);
+            }
+            if (!config.hasAllRequiredProperties()) {
+                return null;
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -63,7 +67,12 @@ public class ConfigReader {
         config.addProperty(property[0], property[1]);
     }
 
+    /**
+     * Method checks if the property is allowed.
+     * @param key - name of property.
+     * @return boolean
+     *  */
     private boolean isAllowedProperty(String key) {
-        return Arrays.asList(properties).contains(key);
+        return Arrays.asList(allowedProperties).contains(key);
     }
 }
