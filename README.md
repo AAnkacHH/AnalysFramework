@@ -30,8 +30,22 @@ Times 1
 Scale 1000000
 ```
 Times means how many times your program should be ran. For example if you set 5 thread and 20 times. The algorithm will reads the data 20 times and runs it in 5 threads. The framework is using thread pool.
+
 Scale is how the framework should show cpu time. For example 1000000 - miliseconds, 1000000000 - seconds. The framework is measured the time in nanoseconds.
+
 You can turn off the tester by setting parameter Tester_enabled to false.
 
 
 ### Adding to your project
+You can easly add it to your project as a jar file.
+
+
+### Running 
+The framework takes a 3 arguments from command line, all of them are required:
+- path to configuration file, the file name must ends .conf
+- path to file with inputs.
+- path to file with solutions for inputs.
+
+
+
+
