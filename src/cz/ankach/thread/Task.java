@@ -49,7 +49,7 @@ public class Task implements Runnable {
         ThreadMXBean threadMXBean = ManagementFactory.getThreadMXBean();
 
         long start = threadMXBean.getCurrentThreadCpuTime();
-        List<OutputArgument> outputs = application.run(arguments);
+        List<OutputArgument> outputs = application.run(arguments, scale, 1); //TODO
         long end = threadMXBean.getCurrentThreadCpuTime();
         runningTimes[currentIndex] = ((double) (end - start))/scale;
 

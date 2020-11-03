@@ -13,12 +13,4 @@ public interface Handler {
      * @return OutputArgument - result.
      * */
     OutputArgument handle(InputArgument input);
-
-    /**
-     *  This method allows the program to copy current handler object.
-     *  It is important for multiple threads running.
-     *
-     *  @return Handler
-     *  */
-    Handler copy();
 }

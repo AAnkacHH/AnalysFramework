@@ -28,7 +28,7 @@ public abstract class Tester {
             SolutionArgument solution = solutions.get(input.getId());
 
             if (!test(arg, solution)) {
-                errors.add("Incorrect solution for input ''': " + input.getId());
+                errors.add("Incorrect solution for input: " + input.getId());
             }
         }
         return errors;
